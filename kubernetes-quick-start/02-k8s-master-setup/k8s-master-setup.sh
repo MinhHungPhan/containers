@@ -7,10 +7,14 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 # Initialize the cluster using the IP range for Flannel
-kubeadm init --pod-network-cidr=10.244.0.0/16
+# Run kubeadm init command and capture the output
+INIT_OUTPUT=$(sudo kubeadm init --pod-network-cidr=10.244.0.0/16)
 
-# Copy the kubeadm join command
-echo "Make a note of the kubeadm join command displayed above, as it will be required for worker nodes to join the cluster."
+# Extract the kubeadm join command from the output
+JOIN_COMMAND=$(echo "$INIT_OUTPUT" | awk '/kubeadm join/{flag=1} /EOF/{print;flag=0} flag')
+
+# Save the join command to a text file
+echo "$JOIN_COMMAND" > join_command.txt
 
 # Set up the local kubeconfig for the current user
 USER_HOME=$(eval echo ~${SUDO_USER})
