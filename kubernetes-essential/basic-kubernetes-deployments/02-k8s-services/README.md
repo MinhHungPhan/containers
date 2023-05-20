@@ -25,10 +25,10 @@ spec:
   selector:
     app: nginx
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
-    nodePort: 30080
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30080
   type: NodePort
 EOF
 ```
