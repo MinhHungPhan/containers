@@ -10,7 +10,7 @@ A pod consists of one or more containers, storage resources, and a unique IP add
 In this tutorial, we discuss the basics of what pods are and how they are related to containers within the world of Kubernetes. We will create a simple pod and then we will look at some ways to explore and interact with pods in your Kubernetes cluster.
 
 ## Commands
-Here are the commands used in this lesson:
+Here are the commands used in this tutorial:
 
 1. Create a simple pod running an nginx container:
 ```bash
@@ -25,7 +25,7 @@ spec:
   image: nginx
 EOF
 ```
-2. et a list of pods and verify that your new nginx pod is in the Running state:
+2. Get a list of pods and verify that your new nginx pod is in the Running state:
 ```bash
 kubectl get pods
 ```
