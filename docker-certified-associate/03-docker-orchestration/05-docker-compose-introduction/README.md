@@ -17,24 +17,28 @@ Docker Compose is a powerful tool that allows us to manage and run multi-contain
 Docker Compose provides a mechanism to define and manage multi-container applications using a declarative format. It is an essential tool to handle complex applications composed of multiple interdependent containers.
 
 ```plaintext
-                                      docker-compose                                   
-                        +-----------------------------------------+                    
-                        |                                         |                    
-                        |    +-----------+       +-----------+    |                    
-                        |    | Port:8080 |       | Password  |    |                    
-                        |    +-----------+       +-----------+    |          +--------+
-                        |                                         |          |        |
-                        |    +-----------+       +-----------+    |          |        |
-                        |    |  Web App  |       |  Database |    +--------->|YML file|
-                        |    |           |       |           |    |          |        |
-                        |    |           |       |           |    |          |        |
-                        |    |           |       |           |    |          +--------+
-                        |    |   nginx   |       |   mysql   |    |                    
-                        |    +-----------+       +-----------+    |                    
-                        |                                         |                    
-                        +-----------------------------------------+                    
-
-                                    © Minh Hung Phan
+                                      docker-compose                                             
+                        +-----------------------------------------+                              
+                        |                                         |                              
+                        |                                         |                              
+                        |    +-----------+       +-----------+    |                              
+                        |    | Port:8080 |       | Password  |    |           +-----------------+
+                        |    +-----------+       +-----------+    |           |version: '3'     |
+                        |                                         |           |services:        |
+                        |                                         |           |  web:           |
+                        |    +-----------+       +-----------+    |           |    image: nginx |
+                        |    |  Web App  |       |  Database |    +---------->|    ports:       |
+                        |    |           |       |           |    |           |      - '8080:80'|
+                        |    |           |       |           |    |           |  database:      |
+                        |    |           |       |           |    |           |    image: mysql |
+                        |    |           |       |           |    |           +-----------------+
+                        |    |   nginx   |       |   mysql   |    |           |    YML File     |
+                        |    +-----------+       +-----------+    |           +-----------------+
+                        |                                         |                              
+                        |               single host               |                              
+                        +-----------------------------------------+                              
+                                      
+                                      © Minh Hung Phan
 ```
 
 ## Multi-Container Applications
@@ -85,7 +89,7 @@ docker-compose ps
 When it's time to terminate the application and clear out the containers, the following command will do the job:
 
 ```bash
-docker-compose down.
+docker-compose down
 ```
 
 ## Relevant Documentation
