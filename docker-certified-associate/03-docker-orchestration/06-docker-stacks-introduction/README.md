@@ -6,6 +6,7 @@ Welcome to this tutorial on Docker stacks. In this tutorial, we will explore Doc
 
 - [Introduction](#introduction)
 - [Docker Compose vs Docker Stack](#docker-compose-vs-docker-stack)
+- [Docker Service vs Docker Stack](#docker-service-vs-docker-stack)
 - [Creating a Stack](#creating-a-stack)
 - [Deploying and Managing Stacks](#deploying-and-managing-stacks)
 - [Using Environment Variables](#using-environment-variables)
@@ -81,7 +82,7 @@ The main difference between Docker Compose and Docker Stack lies in their scope 
 
 1. Scope:
    - **Docker Compose**: Docker Compose is used for defining and running multi-container applications on a single Docker host. It allows you to define the services, networks, and volumes required for your application within a single compose file.
-   - Docker Stack: Docker Stack is used for deploying and managing multi-container applications across multiple Docker Swarm nodes. It enables you to define and deploy a complete stack of services, including networks, volumes, and other configurations, within a stack file.
+   - **Docker Stack**: Docker Stack is used for deploying and managing multi-container applications across multiple Docker Swarm nodes. It enables you to define and deploy a complete stack of services, including networks, volumes, and other configurations, within a stack file.
 
 2. Orchestration:
    - **Docker Compose**: Docker Compose provides basic orchestration capabilities for multi-container applications on a single host. It allows you to define the relationships between services, control their startup order, and manage their configuration.
@@ -92,6 +93,24 @@ The main difference between Docker Compose and Docker Stack lies in their scope 
    - **Docker Stack**: Docker Stack fully leverages the capabilities of Docker Swarm. It allows you to deploy and manage services as scalable replicas, perform rolling updates, configure service health checks, manage secrets, utilize overlay networks for service communication, and benefit from other Swarm-specific features.
 
 In summary, Docker Compose is suitable for developing and testing applications on a single Docker host, while Docker Stack is designed for deploying and managing multi-container applications across a Docker Swarm cluster, providing advanced orchestration and scalability features.
+
+## Docker Service vs Docker Stack
+
+Docker service and Docker stack are both related to Docker's orchestration tool, Docker Swarm. Here is a brief overview of what they are and how they are different:
+
+**Docker Service**:
+
+- A Docker service allows you to create and manage instances of a Dockerized application across multiple nodes, effectively handling tasks like load balancing and service discovery. In the context of Docker Swarm, a service is a technical definition for a task to be executed. You can think of a service as defining how an application is orchestrated on Docker Swarm nodes, such as how many replicas of a service are needed.
+
+- For example, if you have a web server running as a Docker service, and you specify that you want to run 3 instances (replicas) of this service, Docker Swarm will ensure that 3 instances are always running.
+
+**Docker Stack**:
+
+- Docker stack, on the other hand, is a group of services that are deployed together. It is a higher level concept that defines the application's services, networks, and volumes in a Compose file so they can be easily scaled and managed as a whole.
+
+- For instance, if your application consists of a web server, a database server, and a redis cache, you can define these three services in a Docker Compose file and deploy them as a stack. Docker Swarm will then ensure that all three services are running, and if any of them fails, it will restart it.
+
+In summary, the main difference is that Docker service is about managing a single service, while Docker Stack is about managing multiple related services together, typically defined in a Docker Compose file.
 
 ## Creating a Stack
 
