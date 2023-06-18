@@ -6,6 +6,7 @@ Docker Compose is a powerful tool that allows us to manage and run multi-contain
 
 - [Introduction](#introduction)
 - [Multi-Container Applications](#multi-container-applications)
+- [Docker Compose vs Docker Service](#docker-compose-vs-docker-service)
 - [Installation of Docker Compose](#installation-of-docker-compose)
 - [Creating a Docker Compose Project](#creating-a-docker-compose-project)
 - [Running and Managing the Application](#running-and-managing-the-application)
@@ -44,6 +45,35 @@ Docker Compose provides a mechanism to define and manage multi-container applica
 ## Multi-Container Applications
 
 Multi-container applications are more complex than running multiple replicas of the same image. They involve multiple containers, each running a different image, cooperating to form a larger application. Docker Compose enables the definition and management of such applications as a single unit. However, it is worth noting that the Docker Certified Associate primarily covers Docker Compose in relation to stacks in Docker Swarm.
+
+## Docker Compose vs Docker Service
+
+### Docker Compose
+
+- Docker Compose is a tool for defining and running multi-container Docker applications. 
+- It allows you to create a YAML file (docker-compose.yml) that describes the services that make up your app so they can be run together in an isolated environment. 
+- It's particularly suited to development, testing, and staging environments, where you have a set of services that need to interact with each other.
+
+### Docker Service
+
+- Docker Service is a part of Docker Swarm Mode - Docker's native orchestration solution. 
+- It's designed for managing and scaling collections of Docker containers across multiple hosts. 
+- A service allows you to define desired states for your application services in a distributed environment. 
+- Docker Service commands are used to create, inspect, update, or delete services in a Swarm.
+
+### Key Differences
+
+1. **Usage Context:** Docker Compose is primarily used in single host environments where all services run on the same Docker host. Docker Services are used in multi-host environments managed by Docker Swarm.
+
+2. **Deployment:** Docker Compose is used for deploying applications on a single machine, while Docker Services are used for deploying applications across a cluster of machines.
+
+3. **Scaling:** Docker Compose requires manual scaling, while Docker Service can automatically scale services based on the configuration.
+
+4. **Networking:** Docker Service, as part of Docker Swarm, provides inbuilt service discovery, load balancing, and secure network capabilities across multiple nodes. These features are not directly available in Docker Compose.
+
+5. **Configuration:** Both Docker Compose and Docker Service use a YAML file for configuration, but the keys and structure of the file can differ. Docker Compose primarily uses a `docker-compose.yml` file, while Docker Service uses Docker's stack deployment feature with a similar YAML file structure.
+
+> Note: Docker Compose and Docker Service are not mutually exclusive. You can use Docker Compose to define your multi-container application and then use Docker Stack Deploy (which uses Docker Service under the hood) to deploy it to a Swarm.
 
 ## Installation of Docker Compose
 
