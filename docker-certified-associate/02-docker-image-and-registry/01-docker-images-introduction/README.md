@@ -1,6 +1,7 @@
 # Introduction to Docker Images
 
-**Table of Contents**
+## Table of Contents
+
 - [What are Docker Images?](#what-are-docker-images)
 - [The Layered File System](#the-layered-file-system)
 - [Examining Image Layers](#examining-image-layers)
@@ -66,12 +67,11 @@ To examine the layers present in an image, you can use the `docker image history
 docker image history nginx
 ```
 
-
 This command provides a list of the layers within the image. Some layers might be listed as 0 bytes, known as "no operation" layers, as they don't introduce any new data or differences.
 
 ## Relevant Documentation
 
-For further information, you can refer to the [official Docker documentation](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/).
+For further information, you can refer to the [official Docker documentation](https://docs.docker.com/storage/storagedriver/#images-and-layers).
 
 ## Conclusion
 
