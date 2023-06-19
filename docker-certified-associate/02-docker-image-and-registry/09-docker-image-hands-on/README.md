@@ -42,7 +42,6 @@ Once the image is built, test it by running it as a container using the followin
 docker run --name fruit-list -d -p 8080:80 fruit-list:1.0.0
 ```
 
-
 Confirm that the container serves the required data by making a request to it on port 8080. If everything is set up correctly, you should receive a JSON list of fruits:
 
 ```bash
@@ -67,7 +66,6 @@ vi Dockerfile
 Construct a Dockerfile that meets the provided specifications:
 
 ```Dockerfile
-Copy code
 FROM nginx:1.15.8
 
 ADD static/fruit.json /usr/share/nginx/html/fruit.json
