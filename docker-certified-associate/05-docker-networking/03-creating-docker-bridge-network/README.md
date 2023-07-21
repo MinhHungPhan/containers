@@ -18,6 +18,35 @@ Notably, these techniques and commands aren't limited to bridge networks, they a
 
 Bridge networks facilitate communication between Docker containers on the same host. This tutorial aims to provide a detailed exploration of bridge networks, Docker's embedded DNS, network aliases, and various Docker network commands.
 
+Diagram:
+
+```plaintext
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│Single Host                                                                                                       │
+│                                                                                                                  │
+│   ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─     ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─    │
+│    Network Sandbox                                   │     Network Sandbox                                   │   │
+│   │                                                       │                                                      │
+│     ┌──────────────────────────────────────────────┐ │      ┌──────────────────────────────────────────────┐ │   │
+│   │ │                  Container                   │      │ │                  Container                   │     │
+│     └──────────────────────────────────────────────┘ │      └──────────────────────────────────────────────┘ │   │
+│   │                                                       │                                                      │
+│                                     ┌──────────────┐ │      ┌──────────────┐                                 │   │
+│   │                                 │   Endpoint   │      │ │   Endpoint   │                                     │
+│                                     └────────┬─────┘ │      └──────┬───────┘                                 │   │
+│   └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│─ ─ ─ ─     └ ─ ─ ─ ─│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─    │
+│                                              │                     │                                             │
+│                                              │                     │                                             │
+│                                     ┌────────┴─────────────────────┴───────┐                                     │
+│                                     │            Bridge Network            │                                     │
+│                                     └──────────────────────────────────────┘                                     │
+│                                                                                                                  │
+│                                                                                                                  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+                                                 © Minh Hung Phan
+```
+
 ## Create a Network
 
 Let's kick things off by creating a network. We can use the `docker network create` command to accomplish this:
