@@ -246,6 +246,16 @@ When the container is built and run, Docker creates separate namespaces for the 
 
 The control groups (cgroups) ensure that the container's resource usage is limited according to the specified constraints. In this case, the container will be restricted to a maximum of 128MB of memory and will use only 50% of one CPU core.
 
+## Cgroup vs Namespace
+
+A Linux namespace limits what a process can see, while a cgroup limits what a process can access. Namespaces wrap global resources to provide an isolated instance of that resource to a process, while cgroups limit a process's access to system resources.
+
+Let's say we have a container running a database application. We want to isolate the resources used by the database application from the rest of the system to prevent it from consuming too many resources and impacting other applications.
+
+To achieve this, we can use a combination of Linux namespaces and cgroups. We can use the mount namespace to isolate the container's file system, the network namespace to isolate its network stack, and the PID namespace to isolate its process tree.
+
+Then, we can use cgroups to limit the amount of CPU, memory, and disk I/O that the container's processes can use. This will prevent the database application from consuming too many resources and impacting other applications running on the system.
+
 ```plaintext
 Container A:
 +-----------+
@@ -273,6 +283,8 @@ Container B:
 ```
 
 This example showcases the basic usage of Docker namespaces and control groups to isolate processes and control resource usage within a container.
+
+In summary, namespaces provide an isolated environment for the container's processes, while cgroups limit their access to system resources to prevent resource exhaustion and ensure fair resource allocation.
 
 ## Relevant Documentation
 
