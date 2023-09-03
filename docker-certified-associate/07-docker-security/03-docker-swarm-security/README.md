@@ -22,7 +22,6 @@ Overlay networks are distributed cluster networks that allow containers and serv
 
 ### Creating an Encrypted Overlay Network
 
-
 1. Create an encrypted overlay network:
 
 ```bash
