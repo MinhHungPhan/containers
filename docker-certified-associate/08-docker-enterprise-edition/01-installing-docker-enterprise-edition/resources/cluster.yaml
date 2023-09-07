@@ -1,0 +1,25 @@
+apiVersion: launchpad.mirantis.com/v1beta3
+kind: DockerEnterprise
+metadata:
+  name: launchpad-ucp
+spec:
+  ucp:
+    version: 3.3.2
+    installFlags:
+    - --admin-username=admin
+    - --admin-password=secur1ty!
+    - --default-node-orchestrator=kubernetes
+  hosts:
+  - address: <manager_private_IP>
+    privateInterface: ens5
+    role: manager
+    ssh:
+      user: cloud_user
+      keyPath: ~/.ssh/id_rsa
+  - address: <worker_private_IP>
+    privateInterface: ens5
+    role: worker
+    ssh:
+      user: cloud_user
+      keyPath: ~/.ssh/id_rsa
+EOF
