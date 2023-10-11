@@ -3,8 +3,8 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Relevant Documentation](#relevant-documentation)
 - [Tutorial Reference](#tutorial-reference)
+- [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -16,16 +16,19 @@ The ability to store and access container logs is crucial for effective containe
 To follow along with the examples and instructions in this tutorial, execute the following commands and configurations:
 
 1. Check the current default logging driver:
+
 ```bash
 docker info | grep Logging
 ```
 
 2. Edit the `daemon.json` file to set a new default logging driver configuration:
+
 ```bash
 sudo vi /etc/docker/daemon.json
 ```
 
 Add the following configuration to the `daemon.json` file:
+
 ```json
 {
   "log-driver": "json-file",
@@ -36,11 +39,13 @@ Add the following configuration to the `daemon.json` file:
 ```
 
 3. Restart Docker after editing daemon.json:
+
 ```bash
 sudo systemctl restart docker
 ```
 
 4. Run a Docker container, overriding the system default logging driver settings:
+
 ```bash
 docker run --log-driver json-file --log-opt max-size=50m nginx
 ```
