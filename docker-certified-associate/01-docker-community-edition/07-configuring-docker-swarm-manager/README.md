@@ -4,8 +4,8 @@
 
 - [Introduction](#introduction)
 - [Docker Swarm Manager](#docker-swarm-manager)
-- [Relevant Documentation](#relevant-documentation)
 - [Tutorial Reference](#tutorial-reference)
+- [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -23,6 +23,7 @@ The Docker swarm manager plays a crucial role in managing and controlling a Dock
 Follow the steps below to configure a Docker swarm manager:
 
 1. Install Docker Engine on the swarm manager:
+
 ```bash
 sudo apt-get update
 
@@ -48,6 +49,7 @@ sudo apt-get install -y docker-ce=5:18.09.5~3-0~ubuntu-bionic docker-ce-cli=5:18
 ```
 
 2. Add your user to the `docker` group to ensure access to Docker commands:
+
 ```bash
 sudo usermod -a -G docker cloud_user
 ```
@@ -55,6 +57,7 @@ sudo usermod -a -G docker cloud_user
 3. Log out of the server and log back in for the changes to take effect.
 
 4. Initialize the swarm cluster by running the following command:
+
 ```bash
 docker swarm init --advertise-addr <swarm-manager-private-ip>
 ```
@@ -62,11 +65,13 @@ docker swarm init --advertise-addr <swarm-manager-private-ip>
 Replace `<swarm-manager-private-ip>` with the private IP address of the swarm manager server. Make sure to use the private IP, as the public IP may have firewall restrictions.
 
 5. Verify the swarm initialization by checking the swarm status:
+
 ```bash
 docker info
 ```
 
 6. List the nodes in the swarm using the following command:
+
 ```bash
 docker node ls
 ```
@@ -75,11 +80,8 @@ In the output of the `docker node ls` command, you should see the swarm manager 
 
 ## Relevant Documentation
 
-For more detailed information about Docker Swarm and its key concepts, refer to the [official Docker Swarm key concepts](https://docs.docker.com/engine/swarm/key-concepts/).
-
-For more detailed information about creating and managing a Docker swarm, refer to the [official Docker Swarm Documentation](https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/).
-
-By exploring the provided documentation, you can gain a comprehensive understanding of the features and capabilities of Docker Swarm.
+- [official Docker Swarm key concepts](https://docs.docker.com/engine/swarm/key-concepts/).
+- [official Docker Swarm Documentation](https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/).
 
 ## Conclusion
 
