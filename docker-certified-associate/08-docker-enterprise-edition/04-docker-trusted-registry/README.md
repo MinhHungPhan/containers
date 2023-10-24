@@ -8,8 +8,8 @@ Welcome to this guide on Docker Trusted Registry (DTR). Here, you will gain a de
 - [Key Features of DTR](#key-features-of-dtr)
 - [High Availability in DTR](#high-availability-in-dtr)
 - [DTR Cache](#dtr-cache)
+- [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
-- [References](#references)
 
 ## Introduction
 
