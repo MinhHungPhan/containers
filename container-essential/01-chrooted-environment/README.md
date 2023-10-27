@@ -1,6 +1,17 @@
 # Chroot Command and Chrooted Environments
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Key Concepts](#key-concepts)
+- [Demo Steps](#demo-steps)
+- [Usage](#usage)
+- [Tutorial Reference](#tutorial-reference)
+- [Relevant Documentation](#relevant-documentation)
+- [Conclusion](#conclusion)
+
 ## Introduction
+
 The chroot command changes the apparent root directory of a process, creating a chrooted environment with limited visibility of the system.
 
 ## Key Concepts
@@ -25,18 +36,25 @@ To try out chrooting, follow the steps provided in the demonstration. Keep in mi
 ## Tutorial Reference
 
 1. Create the `/home/kientree` directory:
+
 ```bash
 mkdir /home/kientree
 ```
+
 2. Add the "Napoleon" user:
+
 ```bash
 useradd napoleon
 ```
+
 3. Create the `bin` and `lib64` directories:
+
 ```bash
 mkdir /home/kientree/{bin,lib64}
 ```
+
 4. Copy the necessary binaries:
+
 ```bash
 cp /bin/bash /home/kientree/bin/bash
 cp /bin/ls /home/kientree/bin/ls
@@ -44,21 +62,32 @@ cp /bin/cat /home/kientree/bin/cat
 ```
 
 5. Find the required libraries:
+
 ```bash
 libs=$(ldd /bin/bash /bin/ls /bin/cat | awk '{print $3}' | grep -v "^$")
 ```
+
 6. Copy the required libraries to `/home/kientree/lib64`:
+
 ```bash
 echo "$libs" | xargs -I{} cp {} /home/kientree/lib64
 ```
+
 7. Create the `waterloo.txt` file with the desired content:
+
 ```bash
 echo "There is no escape!" > /home/kientree/waterloo.txt
 ```
+
 8. Change the root directory to `/home/kientree` and run Bash:
+
 ```bash
 chroot /home/kientree /bin/bash
 ```
+
+## Relevant Documentation
+
+- [chroot - Change the root directory for the execution of a command](https://www.ibm.com/docs/en/zos/2.3.0?topic=descriptions-chroot-change-root-directory-execution-command)
 
 ## Conclusion
 
