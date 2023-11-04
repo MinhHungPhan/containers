@@ -41,10 +41,10 @@ Feel free to dive deeper into the interface, explore various administrative sett
 ## Relevant Documentation
 
 - [Mirantis Documentation](https://docs.mirantis.com/welcome/)
-- [Docker Docs: Universal Control Plane Overview](https://docs.docker.com/ee/ucp/ucp-architecture/)
-- [Docker Docs: UCP Architecture and Components](https://docs.docker.com/ee/ucp/admin/configure/understand-ucp-architecture/)
-- [Docker Docs: UCP Worker Node Architecture](https://docs.docker.com/ee/ucp/admin/configure/join-nodes/join-worker-nodes/)
-- [Docker Docs: UCP Manager Node Architecture](https://docs.docker.com/ee/ucp/admin/configure/join-nodes/join-manager-nodes/)
+- [Docker Docs: Universal Control Plane Overview](https://docs.mirantis.com/containers/v2.1/dockeree-products/ucp.html)
+- [Docker Docs: UCP Architecture and Components](https://docs.mirantis.com/containers/v2.1/dockeree-products/ucp/ucp-architecture.html)
+- [Docker Docs: UCP Worker Node Architecture](https://docs.mirantis.com/containers/v2.1/dockeree-products/ucp/ucp-architecture.html#ucp-components-in-worker-nodes)
+- [Docker Docs: UCP Manager Node Architecture](https://docs.mirantis.com/containers/v2.1/dockeree-products/ucp/ucp-architecture.html#ucp-components-in-worker-nodes)
 
 ## Conclusion
 
