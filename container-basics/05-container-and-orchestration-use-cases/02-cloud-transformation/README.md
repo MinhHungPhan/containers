@@ -8,8 +8,8 @@ Welcome to this lesson on leveraging containers and orchestration for cloud tran
 - [What is Cloud Transformation?](#what-is-cloud-transformation)
 - [The Role of Containers in Cloud Transformation](#the-role-of-containers-in-cloud-transformation)
 - [Advantages of Using Containers](#advantages-of-using-containers)
+- [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
-- [References](#references)
 
 ## Introduction to Cloud Transformation
 
@@ -33,12 +33,12 @@ Containers provide a lightweight, efficient method of encapsulating existing app
 
 For instance, a web application that used to run on a single server can be containerized. Once in containers, it can be deployed to a cloud provider and managed easily. Resources can be allocated based on the application's current needs, optimizing cost and performance.
 
-## Conclusion
-
-Embracing containers as part of your cloud transformation strategy can offer substantial benefits in terms of cost savings, scalability, and improved management. By modernizing your applications with containers, you position your company to take full advantage of the cloud's potential.
-
-## References
+## Relevant Documentation
 
 - [Docker - What is a Container?](https://www.docker.com/resources/what-container)
 - [Microsoft Azure - Cloud Transformation](https://azure.microsoft.com/en-us/overview/cloud-migration/)
 - [AWS - Cloud Migration](https://aws.amazon.com/cloud-migration/)
+
+## Conclusion
+
+Embracing containers as part of your cloud transformation strategy can offer substantial benefits in terms of cost savings, scalability, and improved management. By modernizing your applications with containers, you position your company to take full advantage of the cloud's potential.
