@@ -12,7 +12,6 @@ Welcome to this section on containers and cloud computing. In this guide, we'll 
 - [Getting Started with Cloud Containers](#getting-started-with-cloud-containers)
 - [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
-- [References](#references)
 
 ## Introduction to Cloud Computing
 
