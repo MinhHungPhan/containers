@@ -12,10 +12,10 @@
    - [Mount Namespace](#mount-namespace)
    - [PID Namespace](#pid-namespace)
    - [Network Namespace](#network-namespace)
+- [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
-- [References](#references)
 
-## Introduction
+## I
 
 Welcome to our guide on Linux Namespaces, a core concept in the Linux operating system that plays a vital role in creating isolated environments like containers. This guide is designed to be beginner-friendly, explaining complex concepts in an easy-to-understand manner.
 
@@ -106,7 +106,6 @@ Container B:
 
 © Minh Hung Phan
 ```
-
 
 ```plaintext
 ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -206,11 +205,7 @@ Each container gets its copy of the network stack, including routing tables, fir
 
 **Example**: Containers can have independent network configurations, improving network management and security.
 
-## Conclusion
-
-Linux namespaces are a fundamental component in building isolated environments like containers. Understanding these namespaces helps in appreciating the security and flexibility offered by containerization technologies.
-
-## References
+## Relevant Documentation
 
 - [The 7 most used Linux namespaces](https://www.redhat.com/sysadmin/7-linux-namespaces)
 - [How to List Namespaces in Linux](https://www.baeldung.com/linux/list-namespaces)
@@ -218,3 +213,7 @@ Linux namespaces are a fundamental component in building isolated environments l
 - [namespaces(7) - Linux manual page](https://www.man7.org/linux/man-pages/man7/namespaces.7.html)
 - [user_namespaces(7) - Linux manual page](https://www.man7.org/linux/man-pages/man7/user_namespaces.7.html)
 - [ipc_namespaces(7) - Linux manual page](https://www.man7.org/linux/man-pages/man7/ipc_namespaces.7.html)
+
+## Conclusion
+
+Linux namespaces are a fundamental component in building isolated environments like containers. Understanding these namespaces helps in appreciating the security and flexibility offered by containerization technologies.
