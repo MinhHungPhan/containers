@@ -1,4 +1,4 @@
-# LXC/LXD Installation and Basic Usage Guide
+# LXC/LXD Installation and Basic Usage
 
 ## Table of Contents
 
