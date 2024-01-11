@@ -1,4 +1,4 @@
-## Introduction to Linux Containers with LXC
+## LXD/LXC Installation Hands On
 
 Welcome to the Linux Containers (LXC) guide! This guide provides an overview of LXC and LXD, their origins, installation steps, and basic usage. Let's dive in!
 
@@ -19,7 +19,7 @@ LXC, also known as "Lexy", is a technology that stands for LX (Linux) Containers
 
 To install LXC and LXD, follow these steps:
 
-1. Determine your Linux distribution by checking /etc/issue:
+1. Determine your Linux distribution by checking `/etc/issue`:
 
 ```bash
 cat /etc/issue
@@ -93,10 +93,10 @@ Ensure that you only pull images from trusted sources, such as official distribu
 
 ## Relevant Documentation
 
-For more detailed information, refer to the [Linux Containers - LXC - Documentation](https://linuxcontainers.org/lxc/documentation/).
+- [LXC/LXD Official Documentation](https://linuxcontainers.org/lxc/introduction/)
+- [IBM Research on Linux Containment](https://www.ibm.com/search?lang=en&cc=us&q=Linux+containment)
+- [Ubuntu LXD Guides](https://ubuntu.com/lxd)
 
 ## Conclusion
 
-Congratulations! You have learned the basics of Linux Containers with LXC and LXD. Feel free to explore further, experiment with different images, and expand your knowledge of containerization.
-
-Enjoy your journey with Linux Containers! 🚀
+Congratulations! You have learned the basics of Linux Containers with LXC and LXD. Feel free to explore further, experiment with different images, and expand your knowledge of containerization. Enjoy your journey with Linux Containers! 🚀
