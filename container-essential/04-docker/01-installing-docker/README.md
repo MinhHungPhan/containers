@@ -16,9 +16,15 @@ In this guide, we will walk you through the process of installing Docker. Before
 
 When we install Docker, we are essentially installing a package that consists of three main components: the Docker daemon (dockerd), the RESTful API, and the Docker client (CLI). These components work together to enable us to run and manage containers on our system.
 
+### Docker Daemon
+
 The Docker daemon is a long-running process that manages container creation, execution, and monitoring. It runs in the background and listens for requests from the Docker client.
 
+### Restful API
+
 The RESTful API is bundled with the Docker daemon and provides a communication interface. It allows us to send commands and instructions to the Docker daemon using API calls.
+
+### Docker Client
 
 To interact with the Docker daemon more conveniently, we use the Docker client, which is a command-line interface (CLI). The Docker client provides us with a set of commands (such as docker run, docker images) that translate into API calls and send them to the Docker daemon.
 
