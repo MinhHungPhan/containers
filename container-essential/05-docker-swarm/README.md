@@ -1,9 +1,19 @@
-# Docker Swarm: Container Orchestration Made Easy
+# Docker Swarm
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Why Docker Swarm](#why-docker-swarm)
+- [Key Concepts of Docker Swarm](#key-concepts-of-docker-swarm)
+- [Relevant Documentation](#relevant-documentation)
+- [Conclusion](#conclusion)
 
 ## Introduction
+
 Welcome to the world of Docker Swarm! In this guide, we'll explore the importance of container orchestration and how Docker Swarm can simplify the management of your containerized applications.
 
 ## Why Docker Swarm?
+
 Congratulations on reaching container orchestration! You've already learned about creating chrooted environments, isolating variables, and utilizing namespaces and cgroups through LXC and Docker. But why do we need more?
 
 Imagine having to create and manage hundreds or even thousands of instances of your application. This would be an overwhelming task for any system administrator. That's where automation and orchestration come into play.
@@ -11,6 +21,7 @@ Imagine having to create and manage hundreds or even thousands of instances of y
 Docker Swarm allows you to pool the resources of multiple computers into a cluster or swarm. Once these computers are joined together, you'll have a Docker manager that acts as the taskmaster for the other nodes. You can deploy your application services to the worker nodes and let the manager allocate resources accordingly.
 
 ## Key Concepts of Docker Swarm
+
 Before we dive into the command line, let's go over some core concepts of Docker Swarm:
 
 1. **Cluster Management with Docker Engine**: Docker Swarm integrates cluster management seamlessly with the Docker engine. You can create and manage your swarm using the Docker engine CLI, which means no additional orchestration software is required. If you're already familiar with Docker commands like docker run and docker build, you're good to go.
@@ -33,5 +44,11 @@ Before we dive into the command line, let's go over some core concepts of Docker
 
 10. **Rolling Updates**: Docker Swarm allows you to specify rollout time for updates. If an issue occurs, you can roll back to a previous version. This minimizes downtime and helps maintain a stable environment.
 
+## Relevant Documentation
+
+- [Swarm mode overview](https://docs.docker.com/engine/swarm/)
+- [Docker Swarm](https://www.mirantis.com/software/swarm/)
+
 ## Conclusion
+
 Now that you're familiar with the key concepts of Docker Swarm, you're ready to explore it further with your own pace.
