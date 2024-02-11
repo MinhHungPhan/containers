@@ -1,12 +1,14 @@
 # Dockerfile Basics
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Writing a Dockerfile](#writing-a-dockerfile)
 - [Building Docker Images](#building-docker-images)
 - [Understanding Image Layers](#understanding-image-layers)
 - [Docker Installation](#docker-installation)
 - [Dockerfile Creation](#dockerfile-creation)
+- [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -18,6 +20,14 @@ Welcome to the world of Dockerfiles! In this guide, we'll dive into the Dockerfi
 A Dockerfile is a text file that contains a set of instructions for building a Docker image. It specifies the base image, the dependencies to install, configuration changes, and more. To get started, create a new directory and navigate into it. Then, create a file named `Dockerfile` (note: the filename is case-sensitive).
 
 In the Dockerfile, you'll typically start with a `FROM` instruction to specify the base image. For example, `FROM ubuntu:16.04` sets Ubuntu 16.04 as the base image. You can then use various instructions like `RUN`, `COPY`, `ENV`, and `EXPOSE` to define the steps required to build the image.
+
+**Example**:
+
+```Dockerfile
+FROM ubuntu:16.04
+LABEL maintainer="@minhhung.phan@kientree.com"
+RUN apt-get update && apt-get install -y python3
+```
 
 ## Building Docker Images
 
@@ -36,54 +46,63 @@ When building an image, Docker only rebuilds the layers that have changed, lever
 To get started with Docker, follow the steps below:
 
 1. Install the required packages:
+
 ```bash
-sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+sudo su -
+yum install -y yum-utils device-mapper-persistent-data lvm2
 ```
 
 2. Add Docker repository to yum configuration:
+
 ```bash
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
 3. Install Docker:
+
 ```bash
-sudo yum install -y docker-ce
+yum install -y docker-ce
 ```
 
 4. Enable and start Docker:
+
 ```bash
-sudo systemctl enable docker
-sudo systemctl start docker
+systemctl enable docker
+systemctl start docker
 ```
+
+Now you have Docker installed and ready to use!
 
 ## Dockerfile Creation
 
 To create a Dockerfile with Python installation, follow the steps below:
 
 1. Create and navigate to the `/onboarding` directory:
+
 ```bash
-sudo mkdir /onboarding
+mkdir /onboarding
 cd /onboarding
 ```
 
 2. Create the Dockerfile with Python installation:
-```bash
-sudo bash -c 'cat <<EOF > Dockerfile
+
+```Dockerfile
 FROM ubuntu:16.04
 LABEL maintainer="@minhhung.phan@kientree.com"
 RUN apt-get update && apt-get install -y python3
-EOF'
 ```
 
 3. Build the Docker image from the Dockerfile:
+
 ```bash
-sudo docker build .
+docker build .
 ```
+
+## Relevant Documentation
+
+- [Dockerfile reference](https://docs.docker.com/engine/reference/builder/#dockerfile-reference)
+- [Overview of best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#pipe-dockerfile-through-stdin)
 
 ## Conclusion
 
-Congratulations on learning the basics of Dockerfiles! You now have the knowledge to write your own Dockerfile and build custom Docker images. By understanding image layers, you can optimize your image builds and leverage the benefits of Docker's layered architecture.
-
-Now, it's time to experiment and explore the possibilities with Dockerfiles. Feel free to dive deeper into Dockerfile instructions, explore advanced features, and create customized images for your applications.
-
-Happy Dockerizing!
+Congratulations on learning the basics of Dockerfiles! You now have the knowledge to write your own Dockerfile and build custom Docker images. By understanding image layers, you can optimize your image builds and leverage the benefits of Docker's layered architecture. Happy Dockerizing! 🚀
