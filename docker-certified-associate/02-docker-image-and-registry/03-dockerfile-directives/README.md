@@ -54,7 +54,7 @@ vi Dockerfile
 
 We will add these directives into our Dockerfile to customize our Nginx image further. The Dockerfile now looks like:
 
-```bash
+```Dockerfile
 # Simple nginx image
 FROM ubuntu:bionic
 ENV NGINX_VERSION 1.14.0-0ubuntu1.7
@@ -101,7 +101,8 @@ docker container rm -f <container id>
 
 ## Relevant Documentation
 
-For detailed information about Dockerfile directives, please refer to the [official Docker Documentation](https://docs.docker.com/engine/reference/builder/).
+- [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
+- [Overview of best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 ## Conclusion
 
