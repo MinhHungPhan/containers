@@ -172,7 +172,6 @@ spec:
     ssh:
       user: cloud_user
       keyPath: ~/.ssh/id_rsa
-EOF
 ```
 
 6. **Install Docker EE**:
