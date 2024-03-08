@@ -1,15 +1,16 @@
 # Creating Your Own Docker Image
 
-This README.md document serves as a guide to help you create your own Docker image, particularly for a simple web service that provides a static list of fresh fruits available in the supermarket. 
+This document serves as a guide to help you create your own Docker image, particularly for a simple web service that provides a static list of fresh fruits available in the supermarket. 
 
 ## Table of Contents
 
-1. [Introduction](#Introduction)
-2. [Additional Resources](#Additional-Resources)
-3. [Specifications](#Specifications)
-4. [Testing](#Testing)
-5. [Solution](#Solution)
-6. [Conclusion](#Conclusion)
+- [Introduction](#Introduction)
+- [Additional Resources](#Additional-Resources)
+- [Specifications](#Specifications)
+- [Testing](#Testing)
+- [Solution](#Solution)
+- [Relevant Documentation](#relevant-documentation)
+- [Conclusion](#Conclusion)
 
 ## Introduction
 
@@ -19,7 +20,7 @@ Docker Hub offers a range of useful, pre-made images for various applications. H
 
 Let's consider a scenario: Your supermarket firm has a simple nginx-based web service that shows a static list of fresh fruits available in their stores. They want to operate this service as a Docker container in their new swarm environment, and need you to build a Docker image for this service.
 
-On the provided lab server, you will find a directory at /home/cloud_user/fruit-list/. The files necessary for image creation are in this directory. 
+On the provided lab server, you will find a directory at `/home/cloud_user/fruit-list/`. The files necessary for image creation are in this directory. 
 
 ## Specifications
 
@@ -108,6 +109,10 @@ Make a request to the container and verify that you receive some JSON data conta
 ```bash
 curl localhost:8080
 ```
+
+## Relevant Documentation
+
+- [Docker Image](https://docs.docker.com/engine/reference/commandline/image/)
 
 ## Conclusion
 
