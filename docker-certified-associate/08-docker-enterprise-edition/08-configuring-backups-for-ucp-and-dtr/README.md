@@ -1,11 +1,5 @@
 # Configuring Backups for Docker UCP and DTR
 
-## Introduction
-
-Welcome to the guide on configuring backups for Docker Universal Control Plane (UCP) and Docker Trusted Registry (DTR). Regular backups are a critical part of maintaining a robust and resilient production environment. In case of hardware failure or data corruption, backups ensure that you can restore your Docker infrastructure to a working state with minimal downtime.
-
-This document will outline the steps necessary to back up your UCP and DTR data securely. We will cover how to back up Docker Swarm as a prerequisite, followed by specific instructions for UCP and DTR backup procedures.
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -15,6 +9,12 @@ This document will outline the steps necessary to back up your UCP and DTR data 
 - [Backing Up DTR](#backing-up-dtr)
 - [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
+
+## Introduction
+
+Welcome to the guide on configuring backups for Docker Universal Control Plane (UCP) and Docker Trusted Registry (DTR). Regular backups are a critical part of maintaining a robust and resilient production environment. In case of hardware failure or data corruption, backups ensure that you can restore your Docker infrastructure to a working state with minimal downtime.
+
+This document will outline the steps necessary to back up your UCP and DTR data securely. We will cover how to back up Docker Swarm as a prerequisite, followed by specific instructions for UCP and DTR backup procedures.
 
 ## Prerequisites
 
