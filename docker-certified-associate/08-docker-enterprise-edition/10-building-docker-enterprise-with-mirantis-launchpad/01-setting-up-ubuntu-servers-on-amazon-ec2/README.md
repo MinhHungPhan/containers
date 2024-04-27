@@ -1,7 +1,8 @@
-# Docker Enterprise Cluster Setup on AWS EC2
+# Setting up Ubuntu Servers on Amazon EC2
 
 ## Table of Contents
 
+- [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Launch EC2 Instances](#launch-ec2-instances)
    - [Create EC2 Instances](#create-ec2-instances)
@@ -11,8 +12,8 @@
 - [Access Servers via EC2 Instance Connect](#access-servers-via-ec2-instance-connect)
 - [Create `cloud_user`](#create-cloud_user)
 - [Setup a Password for `cloud_user`](#setup-a-password-for-cloud_user)
+- [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
-- [References](#references)
 
 ## Introduction
 
@@ -305,12 +306,12 @@ su - cloud_user
 
 - If you need to set up a password for `cloud_user` on multiple servers (like UCP Manager, Worker Node, and DTR Server), repeat these steps on each server.
 
-## Conclusion
-
-Well done! You have successfully set up the foundational servers on AWS EC2 with Ubuntu 18.04 Bionic Beaver LTS. Each server, designated as the UCP Manager, Worker Node, and DTR Server, is now ready for the next stage of your infrastructure development. This setup is a crucial step towards building a fully-functional Docker Enterprise environment. You can now proceed to the specific configurations and installations required for Docker Enterprise in your subsequent setup stages.
-
-## References
+## Relevant Documentation
 
 - [Docker Enterprise Documentation](https://docs.docker.com/ee/)
 - [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/index.html)
 - [Ubuntu 18.04 Documentation](https://ubuntu.com/server/docs)
+
+## Conclusion
+
+Well done! You have successfully set up the foundational servers on AWS EC2 with Ubuntu 18.04 Bionic Beaver LTS. Each server, designated as the UCP Manager, Worker Node, and DTR Server, is now ready for the next stage of your infrastructure development. This setup is a crucial step towards building a fully-functional Docker Enterprise environment. You can now proceed to the specific configurations and installations required for Docker Enterprise in your subsequent setup stages.
