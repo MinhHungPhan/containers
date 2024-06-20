@@ -71,7 +71,8 @@ This command provides a list of the layers within the image. Some layers might b
 
 ## Relevant Documentation
 
-For further information, you can refer to the [official Docker documentation](https://docs.docker.com/storage/storagedriver/#images-and-layers).
+- [Images and layers](https://docs.docker.com/storage/storagedriver/#images-and-layers).
+- [Build with Dockers - layers](https://docs.docker.com/build/guide/layers/)
 
 ## Conclusion
 
