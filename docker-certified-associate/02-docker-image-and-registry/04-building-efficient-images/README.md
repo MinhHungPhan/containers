@@ -119,6 +119,7 @@ After running the above commands, you can compare the sizes of the inefficient a
 
 - [Dockerfile Best Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 - [Multi-stage Build](https://docs.docker.com/develop/develop-images/multistage-build/)
+- [Build with Dockers - layers](https://docs.docker.com/build/guide/layers/)
 
 ## Conclusion
 
