@@ -3,11 +3,12 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Step 1: Generate SSH Key Pair](#step-1-generate-ssh-key-pair)
-- [Step 2: Create the `launchpad` User on Each Server](#step-2-create-the-launchpad-user-on-each-server)
-- [Step 3: Set Up SSH Keys for the `launchpad` User](#step-3-set-up-ssh-keys-for-the-launchpad-user)
-- [Step 4: Test SSH Access](#step-4-test-ssh-access)
-- [Step 5: Optionally Disable the User When Not in Use](#step-5-optionally-disable-the-user-when-not-in-use)
+- [Server Setup Guide](#server-setup-guide)
+    - [Step 1: Generate SSH Key Pair](#step-1-generate-ssh-key-pair)
+    - [Step 2: Create the `launchpad` User on Each Server](#step-2-create-the-launchpad-user-on-each-server)
+    - [Step 3: Set Up SSH Keys for the `launchpad` User](#step-3-set-up-ssh-keys-for-the-launchpad-user)
+    - [Step 4: Test SSH Access](#step-4-test-ssh-access)
+    - [Step 5: Optionally Disable the User When Not in Use](#step-5-optionally-disable-the-user-when-not-in-use)
 - [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
 
@@ -15,9 +16,12 @@
 
 Setting up SSH keys for the `launchpad` user across all servers in a Docker Enterprise cluster is a crucial step for secure and efficient system administration. This README guides you through the process of generating an SSH key pair, creating a `launchpad` user with password-less sudo permissions, and configuring SSH access for seamless operation with Mirantis Launchpad.
 
-## Step 1: Generate SSH Key Pair
+## Server Setup Guide
+
+### Step 1: Generate SSH Key Pair
 
 1. **On your local machine**, open a terminal.
+
 2. **Generate the SSH key pair** with the command:
 
 ```bash
@@ -25,11 +29,13 @@ ssh-keygen -t rsa -b 4096 -C "launchpad_key"
 ```
 
 3. **Name the key pair** `launchpad_id` when prompted.
+
 4. **Locate** the generated keys, `launchpad_id` and `launchpad_id.pub`, usually in your `~/.ssh` directory.
 
-## Step 2: Create the `launchpad` User on Each Server
+### Step 2: Create the `launchpad` User on Each Server
 
 1. **SSH into each server** (UCP Manager, Worker Node, DTR Server) using a user with sudo privileges.
+
 2. **Create the `launchpad` user** on each:
 
 ```bash
@@ -52,7 +58,7 @@ launchpad ALL=(ALL) NOPASSWD: ALL
 
 - Save and exit the editor.
 
-## Step 3: Set Up SSH Keys for the `launchpad` User
+### Step 3: Set Up SSH Keys for the `launchpad` User
 
 1. **On your local machine**, display the public key:
 
@@ -85,9 +91,9 @@ chmod 600 ~/.ssh/authorized_keys
 
 - Replace `<public_key_content>` with the actual content of the public key.
 
-## Step 4: Test SSH Access
+### Step 4: Test SSH Access
 
-1. **From your local machine**, test SSH access to each server with the `launchpad` user:
+- **From your local machine**, test SSH access to each server with the `launchpad` user:
 
 ```bash
 ssh -i ~/.ssh/launchpad_id launchpad@<server-ip>
@@ -95,7 +101,7 @@ ssh -i ~/.ssh/launchpad_id launchpad@<server-ip>
 
 - Replace `<server-ip>` with the IP of each server (UCP Manager, Worker Node, DTR Server).
 
-## Step 5: Optionally Disable the User When Not in Use
+### Step 5: Optionally Disable the User When Not in Use
 
 - To **disable the `launchpad` user** when not in use, run:
 
