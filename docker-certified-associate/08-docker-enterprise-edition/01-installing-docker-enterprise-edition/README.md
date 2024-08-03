@@ -8,6 +8,7 @@
 - [Mirantis Overview](#mirantis-overview)
 - [Difference between Docker CE and Docker EE](#difference-between-docker-ce-and-docker-ee)
 - [Docker Enterprise Features](#docker-enterprise-features)
+- [Sequence Diagram: Installing Docker EE with Mirantis Launchpad](#sequence-diagram-installing-docker-ee-with-mirantis-launchpad)
 - [Installing Docker EE](#installing-docker-ee)
 - [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
@@ -76,6 +77,67 @@ Docker Enterprise Edition, owned by Mirantis, encompasses all features of Docker
 
 In essence, Docker Enterprise Edition simplifies application management at an enterprise scale.
 
+## Sequence Diagram: Installing Docker EE with Mirantis Launchpad
+
+In this section, we will walk you through the process of setting up Docker Enterprise Edition (Docker EE) using Mirantis Launchpad. This involves preparing your servers, configuring passwordless sudo and SSH authentication, disabling IPv6, and finally installing Docker EE. Below is a sequence diagram outlining these steps:
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant UCPManagerServer as UCP Manager Server
+    participant UCPWorkerServer as UCP Worker Server
+    participant DTRServer as Docker Trusted Registry Server
+    participant MirantisServer
+
+    User->>UCPManagerServer: Enable passwordless sudo for cloud_user (visudo)
+    UCPManagerServer->>User: Passwordless sudo enabled for cloud_user
+    User->>UCPWorkerServer: Enable passwordless sudo for cloud_user (visudo)
+    UCPWorkerServer->>User: Passwordless sudo enabled for cloud_user
+    User->>DTRServer: Enable passwordless sudo for cloud_user (visudo)
+    DTRServer->>User: Passwordless sudo enabled for cloud_user
+
+    User->>UCPManagerServer: Create SSH key (ssh-keygen -t rsa)
+    UCPManagerServer->>User: Public and private SSH keys created
+
+    User->>UCPManagerServer: Copy public SSH key to UCP Manager (ssh-copy-id cloud_user@<manager_private_IP>)
+    UCPManagerServer->>User: Public SSH key copied to UCP Manager
+    User->>UCPWorkerServer: Copy public SSH key to UCP Worker (ssh-copy-id cloud_user@<worker_private_IP>)
+    UCPWorkerServer->>User: Public SSH key copied to UCP Worker
+    User->>DTRServer: Copy public SSH key to DTR Server (ssh-copy-id cloud_user@<dtr_private_IP>)
+    DTRServer->>User: Public SSH key copied to DTR Server
+
+    User->>UCPManagerServer: Disable IPv6 (sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1)
+    UCPManagerServer->>User: IPv6 disabled
+
+    User->>UCPManagerServer: Download Mirantis Launchpad (wget)
+    UCPManagerServer->>User: Launchpad downloaded
+    User->>UCPManagerServer: Install and configure Mirantis Launchpad (mv, chmod)
+    UCPManagerServer->>User: Launchpad installed and configured
+
+    User->>UCPManagerServer: Verify Launchpad execution (./launchpad version)
+    UCPManagerServer->>User: Launchpad version displayed
+
+    User->>UCPManagerServer: Register Docker EE Cluster (./launchpad register)
+    UCPManagerServer->>MirantisServer: Send registration info
+    MirantisServer->>UCPManagerServer: Registration confirmed
+    UCPManagerServer->>User: Registration complete
+
+    User->>UCPManagerServer: Create configuration file (cluster.yaml)
+    UCPManagerServer->>User: Configuration file created
+
+    User->>UCPManagerServer: Build UCP cluster (./launchpad apply)
+    UCPManagerServer->>MirantisServer: Initiate deployment
+    MirantisServer->>UCPManagerServer: Deploy UCP components
+    MirantisServer->>UCPWorkerServer: Deploy worker components
+    MirantisServer->>UCPManagerServer: Deployment status updates
+    UCPManagerServer->>User: Display deployment status
+
+    User->>UCPManagerServer: Access Docker EE UCP (https://<UCP_Manager_IP_Address>)
+    UCPManagerServer->>User: UCP interface accessible
+    User->>UCPManagerServer: Log in with admin credentials
+    UCPManagerServer->>User: Logged in successfully
+```
+
 ## Installing Docker EE
 
 To get started with Docker EE, follow the steps outlined below:
@@ -107,7 +169,16 @@ ssh-copy-id cloud_user@<worker_private_IP>
 ssh-copy-id cloud_user@<dtr_private_IP>
 ```
 
-3. **Install Mirantis Launchpad**:
+4. **Disable IPv6 Address**:
+
+- On the UCP Manager server, disable `IPv6 Address`:
+
+```bash
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+```
+
+5. **Install Mirantis Launchpad**:
 
 - Download the desired version of Launchpad, e.g., `wget [URL]`:
 
@@ -128,7 +199,7 @@ chmod +x launchpad
 ./launchpad version
 ```
 
-4. **Register Your Docker EE Cluster**:
+6. **Register Your Docker EE Cluster**:
 
 - Run `./launchpad register` and provide the necessary information.
 
@@ -136,7 +207,7 @@ chmod +x launchpad
 ./launchpad register
 ```
 
-5. **Configure Your Cluster**:
+7. **Configure Your Cluster**:
 
 - Create a configuration file `cluster.yaml`:
 
@@ -174,7 +245,7 @@ spec:
       keyPath: ~/.ssh/id_rsa
 ```
 
-6. **Install Docker EE**:
+8. **Install Docker EE**:
 
 - Build the UCP cluster using `./launchpad apply`:
 
@@ -182,7 +253,7 @@ spec:
 ./launchpad apply
 ```
 
-7. **Access Docker EE UCP**:
+9. **Access Docker EE UCP**:
 
 - Access the UCP interface using a web browser at `https://<UCP_Manager_IP_Address>`.
 - Log in with the admin credentials you specified.
