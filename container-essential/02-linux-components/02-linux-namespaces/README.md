@@ -15,7 +15,7 @@
 - [Relevant Documentation](#relevant-documentation)
 - [Conclusion](#conclusion)
 
-## I
+## Introduction
 
 Welcome to our guide on Linux Namespaces, a core concept in the Linux operating system that plays a vital role in creating isolated environments like containers. This guide is designed to be beginner-friendly, explaining complex concepts in an easy-to-understand manner.
 
